@@ -3,6 +3,7 @@ const path = require('path')
 const hbs = require('hbs')
 const favicon = require('serve-favicon')
 const fs = require('fs')
+const port = process.env.PORT || 3000
 
 var app = express();
 app.use(favicon(path.join(__dirname, 'public', 'favicon-blogger.png')))
@@ -46,11 +47,11 @@ app.get('/about',(req,res) => {
     })
 })
 
-app.listen(3000,(err,res)=> {
+app.listen(port,(err,res)=> {
     if(err) {
         console.log(err)
     } else {
-        console.log("Server started...")
+        console.log(`Server started on port ${port}`)
     }
 })
 
